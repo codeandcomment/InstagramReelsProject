@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useFetchAllVideos from '@/components/hooks/apis/useFetchAllVideos';
 import Video from '@/components/atoms/video/Video';
-
+import './Reel.css'
 export const Reel =() =>{
 
      const [playing,setplaying] = useState(1)
