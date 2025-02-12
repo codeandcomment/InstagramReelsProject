@@ -1,24 +1,22 @@
 import { getAllVideos } from "@/components/apis/videos";
 import { useQuery } from "@tanstack/react-query";
 
-export default function useFetchAllVideos(){
+export default function useFetchAllVideos() {
+    const { 
+        isFetching: isVideoFetching, 
+        isError: isVideoError, 
+        isFetched: isVideoFetched, 
+        data: videos 
+    } = useQuery({
+        queryKey: ["videos"],
+        queryFn: getAllVideos,
+        cacheTime: 0 // 0 means no cache
+    });
 
-  const { 
-        isFetching :isVideoFecthing,
-        isError: isVideoError ,
-        isFetched : isVideoFetched,
-        data : videos
-        } = useQuery({
-        queryKey : "videos",
-        queryFn : getAllVideos,
-        cacheTime: 0
-    })
-    
     return {
-        isVideoFecthing,
+        isVideoFetching,
         isVideoError,
         isVideoFetched,
         videos
-    } 
+    }
 }
-
